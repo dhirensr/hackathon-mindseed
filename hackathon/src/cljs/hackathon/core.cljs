@@ -14,6 +14,8 @@
 
 (enable-console-print!)
 
+(def server "http://localhost:3000/")
+
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
     [:li.nav-item
@@ -34,20 +36,36 @@
        [nav-link "#/" "Home" :home collapsed?]
        [nav-link "#/synonym-game" "synonym" :synonym collapsed?]]]]))
 
+(defn synonym-handler
+  [response]
+  (rf/dispatch [:set-words response]))
+
+(defn error-handler
+  [response]
+  (js/alert "Error handler"))
+
 
 
 (defn synonym-game []
-  (let [synonyms (rf/subscribe [:get-k :synonyms])
-        on-button-click (fn
+  (let [on-button-click (fn
                           [word-map]
-                          (rf/dispatch [:set-toggle])
                           (rf/dispatch [:set-synonym (assoc word-map
                                                            :clicked?
-                                                           true)]))]
+                                                           true)]))
+        synonyms (rf/subscribe [:get-k :synonyms])]
     (fn []
       (println (count @synonyms))
       [:div.container
        [:h1 "Synonyms Game"]
+       [:div
+        [:button {:on-click (fn [e]
+                              (GET (str server "words")
+                                   {:format :json
+                                    :response-format :json
+                                    :keywords? true
+                                    :handler synonym-handler
+                                    :error-handler error-handler}))}
+         "Click to generate"]]
        #_(rf/dispatch [:set-first-value false])
        (doall
         (map-indexed (fn [i {:keys [word synonym clicked? disabled?] :as k}]
@@ -60,6 +78,8 @@
                               word
                               "SYNONYM"))])
                      @synonyms))])))
+
+
 
 (defn home-page []
   [:div.container

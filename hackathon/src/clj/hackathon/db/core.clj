@@ -21,5 +21,22 @@
                     :last_name last-name
                     :email email}}))
 
+(defn update-words []
+  (mc/update db
+             "word-map"
+             {}
+             {$set {:disabled? false}}
+             {:multi true}))
+
 (defn get-user [id]
   (mc/find-one-as-map db "users" {:_id id}))
+
+(defn enter-word [word synonym]
+  (mc/insert db "word-map"{:word word
+                           :synonym synonym
+                           :clicked? false
+                           :disabled? false}))
+
+(defn display-words []
+  (mc/find-maps db
+           "word-map"))
