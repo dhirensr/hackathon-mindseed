@@ -129,14 +129,14 @@
     [:div.container
      [:div
 
-      [:input {:type "text"
+      [sa/Input {:type "text"
                :id "email" :placeholder "Enter Email" :required true} ]]
      [:div
-      [:input {:type "text"
+      [sa/Input {:type "text"
                :id "name" :placeholder "Enter Name" :required true} ]]
      [:div
 
-      [:input {:type "text"
+      [sa/Input {:type "text"
                :id "country" :placeholder "Enter Country" :required true}]]
      [:div
       [:label "MotherTongue"]
@@ -145,16 +145,16 @@
        [:option {:value "es"} "Spanish"]
        [:option {:value "fr"} "French"]]]
      [:div
-      [:input {:type "text"
+      [sa/Input {:type "text"
                :id "DOB" :placeholder "1.07.2017" :required true} ]]
      [:div
-      [:input {:type "text"
+      [sa/Input {:type "text"
                :id "mobilenumber" :placeholder "Enter Mobile number" :required true} ]]
      [:div
-      [:input {:type "password"
+      [sa/Input {:type "password"
                :id "password" :placeholder "Enter Password" :required true}]]]
-    [:input {:type "submit" :value "Register"}]
-    [:input {:type "button" :value "Login" :on-click #(rf/dispatch [:set-active-page :login])}]]])
+    [sa/Input {:type "submit" :value "Register"}]
+    [sa/Input{:type "button" :value "Login" :on-click #(rf/dispatch [:set-active-page :login])}]]])
 
 
 
@@ -179,7 +179,7 @@
 (defn translate-page
   []
   [:div.container
-   [:textarea {:type "text" :placeholder "Enter the string" :id "input-str"}]
+   [:textarea {:type "text" :rows "4" :cols "100" :placeholder "Enter the string" :id "input-str"}]
    [:div
     [:input {:type "button" :value "Translate"
              :on-click (fn [e]
@@ -192,7 +192,34 @@
                                  :handler store-to-db
                                  :error-handler error-handler})))}]]
    [:div
-    [:textarea {:type "text" :value @(rf/subscribe [:translate-answer])}]]
+    [:textarea {:type "text" :cols "100" :rows "4" :value @(rf/subscribe [:translate-answer])}]]
+
+   [:div
+    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])
+
+(defn dictionary-render
+  [resp]
+  (log resp)
+  (rf/dispatch [:set-dictionary resp]))
+
+
+(defn dictionary-page
+  []
+  [:div.container
+   [:textarea {:type "text" :placeholder "Enter the word" :id "input-str"}]
+   [:div
+    [:input {:type "button" :value "Check meaning"
+             :on-click (fn [e]
+                         (let   [string (.-value (get-by-id "input-str"))]
+                           (GET (str server "dictionary")
+                                {:params {:input-str string}
+                                 :format :json
+                                 :response-format :json
+                                 :keywords? true
+                                 :handler dictionary-render
+                                 :error-handler error-handler})))}]]
+   [:div
+    [:textarea {:type "text" :rows "4" :cols "100" :value (:meaning @(rf/subscribe [:dictionary]))}]]
 
    [:div
     [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])
@@ -214,8 +241,11 @@
                                 :error-handler error-handler})))}
     [sa/Input {:type "submit" :value "Get Details!"}]
     [sa/Input {:type "button" :value "Translate into English"
-             :on-click (fn [e]
-                         (rf/dispatch [:set-active-page :translate-page]))}]
+               :on-click (fn [e]
+                           (rf/dispatch [:set-active-page :translate-page]))}]
+    [sa/Input {:type "button" :value "Dictionary"
+               :on-click (fn [e]
+                           (rf/dispatch [:set-active-page :dictionary-page]))}]
     [sa/Input {:type "button" :value "Logout!"
              :on-click (fn [e]
                          (rf/dispatch [:set-active-page :login])
@@ -232,6 +262,7 @@
                                  :keywords? true
                                  :handler #(rf/dispatch [:set-word-of-the-day %])
                                  :error-handler error-handler})) }]]
+
    [:div
     [sa/Card
      [sa/CardContent
@@ -250,7 +281,8 @@
    :thankyou #'thankyou-page
    :register-fail #'register-fail-page
    :login-fail #'login-fail-page
-   :translate-page #'translate-page})
+   :translate-page #'translate-page
+   :dictionary-page #'dictionary-page})
 
 (defn page []
   [:div

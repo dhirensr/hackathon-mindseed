@@ -28,6 +28,11 @@
    (assoc db :word-of-the-day page)))
 
 (reg-event-db
+ :set-dictionary
+ (fn [db [_ page]]
+   (assoc db :dictionary page)))
+
+(reg-event-db
  :set-translate-answer
  (fn [db [_ page]]
    (assoc db :translate-answer page)))

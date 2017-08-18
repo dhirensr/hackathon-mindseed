@@ -514,3 +514,151 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/c
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.175 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.824 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.81 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.939 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.749 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.79 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.787 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.694 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:202  column:33  ----[0m
+
+  [1mUse of undeclared Var hackathon.core/%[0m
+
+  [36m198[0m  [36m    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])[0m
+  [36m199[0m  [36m[0m
+  [36m200[0m  [36m(defn dictionary-render[0m
+  [36m201[0m  [36m  [resp][0m
+  [33m202[0m  [1m  (rf/dispatch [:set-dictionary %])[0m
+  [0m   [0m  [33m                                ^--- Use of undeclared Var hackathon.core/%[0m
+  [36m203[0m  [36m  )[0m
+  [36m204[0m  [36m[0m
+  [36m205[0m  [36m[0m
+  [36m206[0m  [36m(defn dictionary-page[0m
+  [36m207[0m  [36m  [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.768 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:202  column:33  ----[0m
+
+  [1mUse of undeclared Var hackathon.core/%[0m
+
+  [36m198[0m  [36m    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])[0m
+  [36m199[0m  [36m[0m
+  [36m200[0m  [36m(defn dictionary-render[0m
+  [36m201[0m  [36m  [resp][0m
+  [33m202[0m  [1m  (rf/dispatch [:set-dictionary %])[0m
+  [0m   [0m  [33m                                ^--- Use of undeclared Var hackathon.core/%[0m
+  [36m203[0m  [36m  )[0m
+  [36m204[0m  [36m[0m
+  [36m205[0m  [36m[0m
+  [36m206[0m  [36m(defn dictionary-page[0m
+  [36m207[0m  [36m  [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.664 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:202  column:33  ----[0m
+
+  [1mUse of undeclared Var hackathon.core/%[0m
+
+  [36m198[0m  [36m    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])[0m
+  [36m199[0m  [36m[0m
+  [36m200[0m  [36m(defn dictionary-render[0m
+  [36m201[0m  [36m  [resp][0m
+  [33m202[0m  [1m  (rf/dispatch [:set-dictionary %])[0m
+  [0m   [0m  [33m                                ^--- Use of undeclared Var hackathon.core/%[0m
+  [36m203[0m  [36m  )[0m
+  [36m204[0m  [36m[0m
+  [36m205[0m  [36m[0m
+  [36m206[0m  [36m(defn dictionary-page[0m
+  [36m207[0m  [36m  [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.724 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:202  column:33  ----[0m
+
+  [1mUse of undeclared Var hackathon.core/%[0m
+
+  [36m198[0m  [36m    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])[0m
+  [36m199[0m  [36m[0m
+  [36m200[0m  [36m(defn dictionary-render[0m
+  [36m201[0m  [36m  [resp][0m
+  [33m202[0m  [1m  (rf/dispatch [:set-dictionary %])[0m
+  [0m   [0m  [33m                                ^--- Use of undeclared Var hackathon.core/%[0m
+  [36m203[0m  [36m  )[0m
+  [36m204[0m  [36m[0m
+  [36m205[0m  [36m[0m
+  [36m206[0m  [36m(defn dictionary-page[0m
+  [36m207[0m  [36m  [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.808 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/subscriptions.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:202  column:33  ----[0m
+
+  [1mUse of undeclared Var hackathon.core/%[0m
+
+  [36m198[0m  [36m    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])[0m
+  [36m199[0m  [36m[0m
+  [36m200[0m  [36m(defn dictionary-render[0m
+  [36m201[0m  [36m  [resp][0m
+  [33m202[0m  [1m  (rf/dispatch [:set-dictionary %]))[0m
+  [0m   [0m  [33m                                ^--- Use of undeclared Var hackathon.core/%[0m
+  [36m203[0m  [36m[0m
+  [36m204[0m  [36m[0m
+  [36m205[0m  [36m(defn dictionary-page[0m
+  [36m206[0m  [36m  [][0m
+  [36m207[0m  [36m  [:div.container[0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.865 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.772 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.654 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.685 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.673 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.721 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.679 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.637 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.671 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.62 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js

@@ -31,3 +31,8 @@
  :word-of-the-day
  (fn [db _]
    (:word-of-the-day db)))
+
+(reg-sub
+ :dictionary
+ (fn [db _]
+   (:dictionary db)))
