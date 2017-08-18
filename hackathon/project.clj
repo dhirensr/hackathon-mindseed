@@ -35,7 +35,7 @@
                  [soda-ash "0.3.0"]
                  [clj-http "1.0.0"]
                  [selmer "1.11.0"]
-                 [com.twinql.clojure/clj-apache-http "2.3.1"]]
+                 [yandex-translate "0.1.0"]]
 
   :min-lein-version "2.0.0"
 

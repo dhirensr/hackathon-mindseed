@@ -6,10 +6,14 @@
             [hackathon.db.core :as db]
             ))
 
+(defn get-multipart-param [request name]
+  (get-in request [:params name]))
+
+
 (defn register
   [email name country language dob mobilenumber password]
   (if (db/enter-details email name country language dob mobilenumber password)
-     true
+    true
     false))
 
 (defn login?
@@ -20,5 +24,10 @@
                                 true
                                 false)
                              (db/all-users)))) 0)
-    true
-    false))
+    [true mobilenumber password]
+    [false mobilenumber password]))
+
+
+(defn get-userdetails
+  [mobilenumber]
+  (first (db/get-userdetail mobilenumber)))

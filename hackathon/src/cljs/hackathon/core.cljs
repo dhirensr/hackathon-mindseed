@@ -40,7 +40,7 @@
       (when-not @collapsed? {:class "in"})
       [:a.navbar-brand {:href "#/"} "hackathon"]
       [:ul.nav.navbar-nav
-       [nav-link "#/" "Home" :home collapsed?]
+
        [nav-link "#/about" "About" :about collapsed?]
        [nav-link "#/login" "Login" :login collapsed?]
        [nav-link "#/register" "Register" :signup collapsed?]]]]))
@@ -53,8 +53,9 @@
 
 (defn login-display
   [resp]
-  (if resp
-    (rf/dispatch [:set-active-page :home])
+  (if (first resp)
+    (do (rf/dispatch [:set-active-page :home])
+        (rf/dispatch [:set-current-user (second resp)]))
     (rf/dispatch [:set-active-page :login-fail])))
 
 (defn login-page
@@ -65,14 +66,14 @@
            :on-submit (fn [e]
                         (let   [u (.-value (get-by-id "mobilenumber"))
                                 p (.-value (get-by-id "password"))]
-                               (GET (str server "loginuser")
-                                    {:params {:mobilenumber u
-                                              :password p}
-                                     :format :json
-                                     :response-format :json
-                                     :keywords? true
-                                     :handler login-display
-                                     :error-handler error-handler})))}
+                          (GET (str server "loginuser")
+                               {:params {:mobilenumber u
+                                         :password p}
+                                :format :json
+                                :response-format :json
+                                :keywords? true
+                                :handler login-display
+                                :error-handler error-handler})))}
     [:input {:type "text"
              :id "mobilenumber" :placeholder "9773475171"}]
     [:input {:type "password"
@@ -104,6 +105,7 @@
    [:h2 "Registration Page!"]
    [:form {:action "#" :method "get"
            :on-submit (fn [e]
+
                        (let [l (.-value (get-by-id "email"))
                              m (.-value (get-by-id "name"))
                              n (.-value (get-by-id "country"))
@@ -111,10 +113,10 @@
                              p (.-value (get-by-id "DOB"))
                              q (.-value (get-by-id "mobilenumber"))
                              r (.-value (get-by-id "password"))]
-                             (GET (str server "putdetails")
+                             (POST (str server "putdetails")
                                     {:params {:email l
                                               :name m
-                                              :contry n
+                                              :country n
                                               :language o
                                               :dob p
                                               :mobilenumber q
@@ -173,10 +175,36 @@
       [:button {:type "submit" :class "btn btn-default"} "Sign In"]
       #_[:button {:type "submit" :class "btn btn-default"} "Register"]]]]])
 
+(defn print-userdetails
+  [resp]
+  (rf/dispatch [:set-user-details resp]))
+
+(defn render-userdetails
+  []
+  [:div.container
+   [:h4 "Name  " (:name @(rf/subscribe [:user-details]))]
+   [:h4 "Email  " (:email @(rf/subscribe [:user-details]))]
+   [:h4 "Country  " (:country @(rf/subscribe [:user-details]))]
+   [:h4 "DOB  " (:dob @(rf/subscribe [:user-details]))]])
 
 (defn home-page []
   [:div.container
-   [:h2 "Hello World"]])
+   [:h2 "Hello " @(rf/subscribe [:user])]
+   [:form {:action "#" :method "get"
+           :on-submit (fn [e]
+                        (let   [u @(rf/subscribe [:user])]
+                          (GET (str server "userdetails")
+                               {:params {:mobilenumber u}
+                                :format :json
+                                :response-format :json
+                                :keywords? true
+                                :handler print-userdetails
+                                :error-handler error-handler})))}
+    [:input {:type "submit" :value "Get Details!"}]]
+   [render-userdetails]])
+
+
+
 
 (def pages
   {:home #'home-page
@@ -197,7 +225,7 @@
 (secretary/set-config! :prefix "#")
 
 (secretary/defroute "/" []
-  (rf/dispatch [:set-active-page :home]))
+  (rf/dispatch [:set-active-page :login]))
 
 (secretary/defroute "/about" []
   (rf/dispatch [:set-active-page :about]))
@@ -230,6 +258,5 @@
 (defn init! []
   (rf/dispatch-sync [:initialize-db])
   (load-interceptors!)
-
   (hook-browser-navigation!)
   (mount-components))

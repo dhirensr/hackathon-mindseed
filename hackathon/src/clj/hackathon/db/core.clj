@@ -30,19 +30,41 @@
 
 (defn enter-details
   [email name country language dob mobilenumber password]
-  (create-row {:email email
-               :name name
-               :country country
-               :language language
-               :dob dob
-               :mobilenumber mobilenumber
-               :password password
-               :score1 0
-               :score2 0}))
+  (if (check-duplicates mobilenumber)
+    false
+    (create-row {:email email
+                 :name name
+                 :country country
+                 :language language
+                 :dob dob
+                 :mobilenumber mobilenumber
+                 :password password
+                 :score1 0
+                 :score2 0})))
 
-(defn all-users
+(defn all-users-details
   "all users map"
   []
   (mapv
-   #(select-keys % [:mobilenumber :password])
+   #(select-keys % [:mobilenumber :password :email :score1 :name :dob :language :score2 :country])
    (mc/find-maps db "hackathon")))
+
+
+(defn check-duplicates
+  [mobilenumber]
+  (if (< 0  (count  (filter true? (map (fn [a]
+                                         (if (= mobilenumber (:mobilenumber a))
+                                           true
+                                           false)) (into #{}
+                                                         (mapv
+                                                          #(select-keys % [:mobilenumber])
+                                                          (mc/find-maps db "hackathon")))))))
+      true
+      false))
+
+
+(defn get-userdetail
+  [mobilenumber]
+  (flatten (remove nil? (map (fn [a]
+                               (if (= mobilenumber (:mobilenumber a))
+                                 [a])) (all-users-details)))))
