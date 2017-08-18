@@ -14,89 +14,6 @@
 
 (enable-console-print!)
 
-(def synonyms-key-value [{:word "about"
-                          :synonym "approximately"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "approximately"
-                          :synonym "about"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "abstract"
-                          :synonym "summary"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "abstract"
-                          :word "summary"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "almost"
-                          :synonym "nearly"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "almost"
-                          :word "nearly"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "animated"
-                          :synonym "lively"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "animated"
-                          :word "lively"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "arise"
-                          :synonym "occur"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "arise"
-                          :word "occur"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "aromatic"
-                          :synonym "fragrant"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "aromatic"
-                          :word "fragrant"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "artful"
-                          :synonym "crafty"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "artful"
-                          :word "crafty"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:word "association"
-                          :synonym "organization"
-                          :clicked? false
-                          :disabled? false}
-
-                         {:synonym "association"
-                          :word "organization"
-                          :clicked? false
-                          :disabled? false}])
-
-
-(def synonyms ["about" "approximately" "abstract" "summary" "almost" "nearly" "animated" "lively" "arise" "occur" "aromatic" "fragrant" "artful" "crafty" "association" "organization"])
-
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
     [:li.nav-item
@@ -115,14 +32,15 @@
       [:a.navbar-brand {:href "#/"} "hackathon"]
       [:ul.nav.navbar-nav
        [nav-link "#/" "Home" :home collapsed?]
-       [nav-link "#/about" "About" :about collapsed?]]]]))
+       [nav-link "#/synonym-game" "synonym" :synonym collapsed?]]]]))
 
 
 
-(defn about-page []
+(defn synonym-game []
   (let [synonyms (rf/subscribe [:get-k :synonyms])
         on-button-click (fn
-                         [word-map]
+                          [word-map]
+                          (rf/dispatch [:set-toggle])
                           (rf/dispatch [:set-synonym (assoc word-map
                                                            :clicked?
                                                            true)]))]
@@ -134,7 +52,6 @@
        (doall
         (map-indexed (fn [i {:keys [word synonym clicked? disabled?] :as k}]
                        ^{:key i}
-
                        [sa/Button {:onClick #(on-button-click k)}
                         (println @synonyms)
                         (if disabled?
@@ -153,7 +70,7 @@
 
 (def pages
   {:home #'home-page
-   :about #'about-page})
+   :synonym #'synonym-game})
 
 (defn page []
   [:div
@@ -167,8 +84,8 @@
 (secretary/defroute "/" []
   (rf/dispatch [:set-active-page :home]))
 
-(secretary/defroute "/about" []
-  (rf/dispatch [:set-active-page :about]))
+(secretary/defroute "/synonym-game" []
+  (rf/dispatch [:set-active-page :synonym]))
 
 ;; -------------------------
 ;; History
