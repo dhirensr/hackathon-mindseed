@@ -12,6 +12,91 @@
             [soda-ash.core :as sa])
   (:import goog.History))
 
+(enable-console-print!)
+
+(def synonyms-key-value [{:word "about"
+                          :synonym "approximately"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "approximately"
+                          :synonym "about"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "abstract"
+                          :synonym "summary"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "abstract"
+                          :word "summary"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "almost"
+                          :synonym "nearly"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "almost"
+                          :word "nearly"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "animated"
+                          :synonym "lively"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "animated"
+                          :word "lively"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "arise"
+                          :synonym "occur"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "arise"
+                          :word "occur"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "aromatic"
+                          :synonym "fragrant"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "aromatic"
+                          :word "fragrant"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "artful"
+                          :synonym "crafty"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "artful"
+                          :word "crafty"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:word "association"
+                          :synonym "organization"
+                          :clicked? false
+                          :disabled? false}
+
+                         {:synonym "association"
+                          :word "organization"
+                          :clicked? false
+                          :disabled? false}])
+
+
+(def synonyms ["about" "approximately" "abstract" "summary" "almost" "nearly" "animated" "lively" "arise" "occur" "aromatic" "fragrant" "artful" "crafty" "association" "organization"])
+
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
     [:li.nav-item
@@ -32,11 +117,32 @@
        [nav-link "#/" "Home" :home collapsed?]
        [nav-link "#/about" "About" :about collapsed?]]]]))
 
+
+
 (defn about-page []
-  [:div.container
-   [:div.row
-    [:div.col-md-12
-     [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
+  (let [synonyms (rf/subscribe [:get-k :synonyms])
+        on-button-click (fn
+                         [word-map]
+                          (rf/dispatch [:set-synonym (assoc word-map
+                                                           :clicked?
+                                                           true)]))]
+    (fn []
+      (println (count @synonyms))
+      [:div.container
+       [:h1 "Synonyms Game"]
+       #_(rf/dispatch [:set-first-value false])
+       (doall
+        (map-indexed (fn [i {:keys [word synonym clicked? disabled?] :as k}]
+                       ^{:key i}
+
+                       [sa/Button {:onClick #(on-button-click k)}
+                        (println @synonyms)
+                        (if disabled?
+                            word
+                            (if clicked?
+                              word
+                              "SYNONYM"))])
+                     @synonyms))])))
 
 (defn home-page []
   [:div.container
