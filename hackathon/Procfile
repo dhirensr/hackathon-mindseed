@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/hackathon.jar clojure.main -m hackathon.core
