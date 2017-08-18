@@ -319,3 +319,198 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/c
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.548 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.612 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.572 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.58 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.582 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.574 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.582 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.571 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.615 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.583 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.545 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.594 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.561 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.566 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/subscriptions.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.608 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.554 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.584 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.567 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.623 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.597 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.594 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.557 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.594 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.576 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.588 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.58 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.552 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.556 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.568 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.558 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.656 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.326 seconds.[0m
+[36m----  Could not Read  src/cljs/hackathon/core.cljs   line:242 ----[0m
+
+  [1m/home/dhiren/hackathon-mindseed/hackathon/src/cljs/hackathon/core.cljs [line 242, col 37] The map literal starting with :type on line 242 column 15 contains 3 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m240[0m  [36m[render-userdetails][0m
+  [36m241[0m  [36m[:div[0m
+  [33m242[0m  [1m [sa/Input {:type "text" :value }]]])[0m
+  [0m   [0m  [33m /home/dhiren/hackathon-mindseed/hackathon/src/cljs/hackathon/core.cljs [line 242, col 37] The map literal starting with :type on line 242 column 15 contains 3 form(s). Map literals must contain an even number of forms.[0m
+
+[36m----  Reader Error : Please see src/cljs/hackathon/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.329 seconds.[0m
+[36m----  Could not Read  src/cljs/hackathon/core.cljs   line:242 ----[0m
+
+  [1m/home/dhiren/hackathon-mindseed/hackathon/src/cljs/hackathon/core.cljs [line 242, col 37] The map literal starting with :type on line 242 column 15 contains 3 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m240[0m  [36m[render-userdetails][0m
+  [36m241[0m  [36m[:div[0m
+  [33m242[0m  [1m [sa/Input {:type "text" :value }]]])[0m
+  [0m   [0m  [33m /home/dhiren/hackathon-mindseed/hackathon/src/cljs/hackathon/core.cljs [line 242, col 37] The map literal starting with :type on line 242 column 15 contains 3 form(s). Map literals must contain an even number of forms.[0m
+
+[36m----  Reader Error : Please see src/cljs/hackathon/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.604 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.633 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.589 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.593 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.584 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.575 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/subscriptions.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/hackathon/core.cljs   line:254  column:8  ----[0m
+
+  [1mUse of undeclared Var soda-ash.core/CardHeard[0m
+
+  [36m250[0m  [36m                              :error-handler error-handler})) }]][0m
+  [36m251[0m  [36m[:div[0m
+  [36m252[0m  [36m [sa/Card[0m
+  [36m253[0m  [36m  [sa/CardContent[0m
+  [33m254[0m  [1m   [sa/CardHeard "Word of the Day!"]][0m
+  [0m   [0m  [33m    ^--- Use of undeclared Var soda-ash.core/CardHeard[0m
+  [36m255[0m  [36m  ]]])[0m
+
+[36m----  Compiler Warning : Please see src/cljs/hackathon/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.604 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.572 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.665 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.687 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.621 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.577 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.625 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.585 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.577 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.59 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.595 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.582 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.593 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.581 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.17 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.175 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/hackathon/core.js

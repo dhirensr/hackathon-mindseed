@@ -21,3 +21,13 @@
  :user-details
  (fn [db _]
    (:user-details db)))
+
+(reg-sub
+ :translate-answer
+ (fn [db _]
+   (:translate-answer db)))
+
+(reg-sub
+ :word-of-the-day
+ (fn [db _]
+   (:word-of-the-day db)))

@@ -23,6 +23,16 @@
    (assoc db :user-details page)))
 
 (reg-event-db
+ :set-word-of-the-day
+ (fn [db [_ page]]
+   (assoc db :word-of-the-day page)))
+
+(reg-event-db
+ :set-translate-answer
+ (fn [db [_ page]]
+   (assoc db :translate-answer page)))
+
+(reg-event-db
   :set-docs
   (fn [db [_ docs]]
     (assoc db :docs docs)))

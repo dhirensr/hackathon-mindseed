@@ -28,6 +28,18 @@
 (defn create-row [user-details]
   (dissoc (mc/insert-and-return db "hackathon" user-details) :_id))
 
+(defn check-duplicates
+  [mobilenumber]
+  (if (< 0  (count  (filter true? (map (fn [a]
+                                         (if (= mobilenumber (:mobilenumber a))
+                                           true
+                                           false)) (into #{}
+                                                         (mapv
+                                                          #(select-keys % [:mobilenumber])
+                                                          (mc/find-maps db "hackathon")))))))
+    true
+    false))
+
 (defn enter-details
   [email name country language dob mobilenumber password]
   (if (check-duplicates mobilenumber)
@@ -50,17 +62,7 @@
    (mc/find-maps db "hackathon")))
 
 
-(defn check-duplicates
-  [mobilenumber]
-  (if (< 0  (count  (filter true? (map (fn [a]
-                                         (if (= mobilenumber (:mobilenumber a))
-                                           true
-                                           false)) (into #{}
-                                                         (mapv
-                                                          #(select-keys % [:mobilenumber])
-                                                          (mc/find-maps db "hackathon")))))))
-      true
-      false))
+
 
 
 (defn get-userdetail

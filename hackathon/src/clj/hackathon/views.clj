@@ -3,6 +3,7 @@
             [compojure.core :refer [defroutes GET]]
             [ring.util.http-response :as response]
             [clojure.java.io :as io]
+            [hackathon.translate :as translateapi]
             [hackathon.db.core :as db]
             ))
 
@@ -23,7 +24,7 @@
                                        (= password (:password %)))
                                 true
                                 false)
-                             (db/all-users)))) 0)
+                             (db/all-users-details)))) 0)
     [true mobilenumber password]
     [false mobilenumber password]))
 
@@ -31,3 +32,9 @@
 (defn get-userdetails
   [mobilenumber]
   (first (db/get-userdetail mobilenumber)))
+
+
+(defn translate-into-eng
+  [input-str]
+  (translateapi/translate input-str {:api-key "trnsl.1.1.20170818T090410Z.daf464b1460f4219.a958a99ab4ed926190accc6d7259c57094b2600c"
+                                     :lang "en"}))

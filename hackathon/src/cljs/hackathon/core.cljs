@@ -106,7 +106,7 @@
    [:form {:action "#" :method "get"
            :on-submit (fn [e]
 
-                       (let [l (.-value (get-by-id "email"))
+                        (let [l (.-value (get-by-id "email"))
                              m (.-value (get-by-id "name"))
                              n (.-value (get-by-id "country"))
                              o (.-value (get-by-id "language"))
@@ -158,22 +158,6 @@
 
 
 
-#_(defn login-page
-  []
-  [:div.container
-   [:form {:class "form-horizontal"}
-    [:div {:class "form-group"}
-     [:label {:class "col-sm-2 control-label"} "Mobile Number"]
-     [:div {:class "col-sm-10"}
-      [:input {:type "text" :class "form-control" :placeholder "9773475171"} "Mobile Number"]]]
-    [:div {:class "form-group"}
-     [:label {:class "col-sm-2 control-label" :for "inputPassword3"} "Password"]
-     [:div {:class "col-sm-10"}
-      [:input {:type "password" :class "form-control" :placeholder "password" } "Mobile Number"]]]
-    [:div {:class "form-group"}
-     [:div {:class "col-sm-offset-2 col-sm-10"}
-      [:button {:type "submit" :class "btn btn-default"} "Sign In"]
-      #_[:button {:type "submit" :class "btn btn-default"} "Register"]]]]])
 
 (defn print-userdetails
   [resp]
@@ -182,10 +166,38 @@
 (defn render-userdetails
   []
   [:div.container
-   [:h4 "Name  " (:name @(rf/subscribe [:user-details]))]
-   [:h4 "Email  " (:email @(rf/subscribe [:user-details]))]
-   [:h4 "Country  " (:country @(rf/subscribe [:user-details]))]
-   [:h4 "DOB  " (:dob @(rf/subscribe [:user-details]))]])
+   [:div [sa/Input {:value (str "Name  " (:name @(rf/subscribe [:user-details])))}]]
+   [:div [sa/Input {:value (str "Email  " (:email @(rf/subscribe [:user-details])))}]]
+   [:div [sa/Input {:value (str "Country  " (:country @(rf/subscribe [:user-details])))}]]
+   [:div [sa/Input {:value (str "DOB  " (:dob @(rf/subscribe [:user-details])))}]]])
+
+(defn store-to-db
+  [resp]
+  (rf/dispatch [:set-translate-answer resp]))
+
+
+(defn translate-page
+  []
+  [:div.container
+   [:textarea {:type "text" :placeholder "Enter the string" :id "input-str"}]
+   [:div
+    [:input {:type "button" :value "Translate"
+             :on-click (fn [e]
+                         (let   [string (.-value (get-by-id "input-str"))]
+                           (GET (str server "translate")
+                                {:params {:input-str string}
+                                 :format :json
+                                 :response-format :json
+                                 :keywords? true
+                                 :handler store-to-db
+                                 :error-handler error-handler})))}]]
+   [:div
+    [:textarea {:type "text" :value @(rf/subscribe [:translate-answer])}]]
+
+   [:div
+    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])
+
+
 
 (defn home-page []
   [:div.container
@@ -200,8 +212,32 @@
                                 :keywords? true
                                 :handler print-userdetails
                                 :error-handler error-handler})))}
-    [:input {:type "submit" :value "Get Details!"}]]
-   [render-userdetails]])
+    [sa/Input {:type "submit" :value "Get Details!"}]
+    [sa/Input {:type "button" :value "Translate into English"
+             :on-click (fn [e]
+                         (rf/dispatch [:set-active-page :translate-page]))}]
+    [sa/Input {:type "button" :value "Logout!"
+             :on-click (fn [e]
+                         (rf/dispatch [:set-active-page :login])
+                         (rf/dispatch [:set-current-user ""])
+                         (rf/dispatch [:set-user-details {}]))}]]
+   [render-userdetails]
+   [:div
+    [sa/Input {:type "button" :value "Word of the day"
+               :on-click (fn [e]
+                           (GET (str server "wordoftheday")
+                                {
+                                 :format :json
+                                 :response-format :json
+                                 :keywords? true
+                                 :handler #(rf/dispatch [:set-word-of-the-day %])
+                                 :error-handler error-handler})) }]]
+   [:div
+    [sa/Card
+     [sa/CardContent
+      [sa/CardHeader "Word of the Day!"]
+      [sa/CardDescription (:word @(rf/subscribe [:word-of-the-day]))]
+      [sa/CardDescription (:meaning @(rf/subscribe [:word-of-the-day]))]]]]])
 
 
 
@@ -213,7 +249,8 @@
    :signup #'signup-page
    :thankyou #'thankyou-page
    :register-fail #'register-fail-page
-   :login-fail #'login-fail-page})
+   :login-fail #'login-fail-page
+   :translate-page #'translate-page})
 
 (defn page []
   [:div
