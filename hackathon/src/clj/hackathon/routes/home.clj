@@ -24,8 +24,8 @@
                            (clojure.walk/keywordize-keys)
                            )))
 
-  (def dictionary-url "http://api.pearson.com/v2/dictionaries/entries?headword=")
-(def url "http://api.pearson.com/v2/dictionaries/entries?search=")
+ #_ (def dictionary-url "http://api.pearson.com/v2/dictionaries/entries?headword=")
+(def url "http://api.pearson.com/v2/dictionaries/wordwise/entries?headword=")
 (client/get (str dictionary-url "hello"))
 
 
@@ -45,8 +45,8 @@
                           client/get
                           :body
                           json/read-str
-                          (pull-values {:meaning ["results" 3 "senses" 0 "definition"]
-                                        :usage ["results" 3 "senses" 0 "examples" 0 "text"]}))))
+                          (pull-values {:meaning ["results" 0 "senses" 0 "definition"]
+                                        :usage ["results" 0 "senses" 0 "examples" 0 "text"]}))))
 (defn translate-into-en
   [input-str]
   (layout/render-json
@@ -58,7 +58,7 @@
        (home-page))
   (POST "/putdetails" [email name country language dob mobilenumber password]
         (register-fn email name country language dob mobilenumber password))
-  (GET "/loginuser" [mobilenumber password]
+  (POST "/loginuser" [mobilenumber password]
        (logincheck mobilenumber password))
   (GET "/wordoftheday" []
        (word-of-the-day))
@@ -67,7 +67,11 @@
   (GET "/translate" [input-str]
        (translate-into-en input-str))
   (GET "/dictionary" [input-str]
-       (dictionary input-str)))
+       (dictionary input-str))
+  (GET "/words" []
+       (layout/render-json (views/get-words)))
+  (GET "/animals" []
+       (layout/render-json (views/get-animals))))
 
 
 (client/get "http://urban-word-of-the-day.herokuapp.com/")

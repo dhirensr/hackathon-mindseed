@@ -38,3 +38,16 @@
   [input-str]
   (translateapi/translate input-str {:api-key "trnsl.1.1.20170818T090410Z.daf464b1460f4219.a958a99ab4ed926190accc6d7259c57094b2600c"
                                      :lang "en"}))
+
+
+
+(defn get-words
+  []
+  (map #(select-keys % [:word :synonym :clicked? :disabled?])
+       (db/display-words)))
+
+(defn get-animals
+  "Returns the animals returned from the database"
+  []
+  (map #(select-keys % [:src :name])
+       (db/display-animals)))

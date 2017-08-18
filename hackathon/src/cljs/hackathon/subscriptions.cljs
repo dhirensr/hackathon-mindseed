@@ -36,3 +36,14 @@
  :dictionary
  (fn [db _]
    (:dictionary db)))
+
+
+
+
+
+
+(reg-sub
+ :get-k
+ (fn [db [_ k]]
+   #_(println db)
+   (k db)))

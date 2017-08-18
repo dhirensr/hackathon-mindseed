@@ -23,6 +23,8 @@
 (def server "http://localhost:3000/")
 
 
+
+
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
     [:li.nav-item
@@ -38,18 +40,108 @@
       {:on-click #(swap! collapsed? not)} "☰"]
      [:div.collapse.navbar-toggleable-xs
       (when-not @collapsed? {:class "in"})
-      [:a.navbar-brand {:href "#/"} "hackathon"]
+      [:a.navbar-brand {:href "#/"} "English-Vinglish"]
       [:ul.nav.navbar-nav
-
-       [nav-link "#/about" "About" :about collapsed?]
+       [nav-link "#/register" "Register" :signup collapsed?]
        [nav-link "#/login" "Login" :login collapsed?]
-       [nav-link "#/register" "Register" :signup collapsed?]]]]))
+       [nav-link "#/learn-animal" "Learning Animals" :animal collapsed?]
+       [nav-link "#/about" "Synonym Game" :about collapsed?]]]]))
 
 (defn about-page []
   [:div.container
    [:div.row
     [:div.col-md-12
      [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
+
+
+(defn synonym-handler
+  [response]
+  (rf/dispatch [:set-words response]))
+
+#_(defn error-handler
+  [response]
+  (js/alert "Error handler"))
+
+
+
+(defn synonym-game []
+  (let [on-button-click (fn
+                          [word-map]
+                          (rf/dispatch [:set-synonym (assoc word-map
+                                                           :clicked?
+                                                           true)]))
+        synonyms (rf/subscribe [:get-k :synonyms])]
+    (fn []
+      (println (count @synonyms))
+      [:div.container
+       [:h1 "Synonyms Game"]
+       [:div
+        [:button {:on-click (fn [e]
+                              (GET (str server "words")
+                                   {:format :json
+                                    :response-format :json
+                                    :keywords? true
+                                    :handler synonym-handler
+                                    :error-handler error-handler}))}
+         "Click to generate"]]
+       #_(rf/dispatch [:set-first-value false])
+       (doall
+        (map-indexed (fn [i {:keys [word synonym clicked? disabled?] :as k}]
+                       ^{:key i}
+                       [sa/Button {:onClick #(on-button-click k)}
+                        (println @synonyms)
+                        (if disabled?
+                            word
+                            (if clicked?
+                              word
+                              "SYNONYM"))])
+                     @synonyms))])))
+
+(defn animal-handler
+  [response]
+  (rf/dispatch [:set-animals response]))
+
+(defn learn-animals
+  []
+  (let [animal @(rf/subscribe [:get-k :current-index])
+        animal-list @(rf/subscribe [:get-k :animals])
+        animal-answer (nth animal-list animal)]
+
+    [:div.container
+     [sa/Header {:as "h1"}
+      "Learn Animals"]
+     [:div
+     [:button {:on-click (fn [e]
+                            (GET (str server "animals")
+                                 {:format :json
+                                  :response-format :json
+                                  :keywords? true
+                                  :handler animal-handler
+                                  :error-handler error-handler}))}
+       "Click to generate"]]
+     [:div
+      [sa/Image {:src (:src animal-answer)
+                 :size "medium"
+                 :shape "circular"}]
+      [sa/Header {:as "h3"}
+       "Which animal is this?"]
+      [:p (str (:name animal-answer))]]
+     [:div
+      {:class "next"}
+[sa/Button {:on-click #(rf/dispatch [:set-index])} "Next animal"]]]))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (defn login-display
   [resp]
@@ -62,23 +154,25 @@
   []
   [:div.container
    [:h2 "Login Page!"]
-   [:form {:action "#" :method "get"
-           :on-submit (fn [e]
-                        (let   [u (.-value (get-by-id "mobilenumber"))
-                                p (.-value (get-by-id "password"))]
-                          (GET (str server "loginuser")
-                               {:params {:mobilenumber u
-                                         :password p}
-                                :format :json
-                                :response-format :json
-                                :keywords? true
-                                :handler login-display
-                                :error-handler error-handler})))}
-    [:input {:type "text"
-             :id "mobilenumber" :placeholder "9773475171"}]
-    [:input {:type "password"
-             :id "password" :placeholder "password"}]
-    [:input {:type "submit" :value "LogIn"}]] ])
+   [:form
+    {:action "#" :method "get"
+     :on-submit (fn [e]
+                  (let   [u (.-value (get-by-id "mobilenumber"))
+                          p (.-value (get-by-id "password"))]
+                    (POST (str server "loginuser")
+                         {:params {:mobilenumber u
+                                   :password p}
+                          :format :json
+                          :response-format :json
+                          :keywords? true
+                          :handler login-display
+                          :error-handler error-handler})))}
+    [sa/Input {:type "text"
+               :id "mobilenumber" :placeholder "9773475171"}]
+    [:div
+     [sa/Input {:type "password"
+                :id "password" :placeholder "password"}]]
+    [:div [sa/Input {:type "submit" :value "LogIn"}]]]])
 
 
 
@@ -195,7 +289,10 @@
     [:textarea {:type "text" :cols "100" :rows "4" :value @(rf/subscribe [:translate-answer])}]]
 
    [:div
-    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])
+    [:input {:type "button" :value "Go back to Home!" :on-click
+             (fn [a]
+               (rf/dispatch [:set-active-page :home])
+               (rf/dispatch [:set-translate-answer ""]))}]]])
 
 (defn dictionary-render
   [resp]
@@ -219,10 +316,14 @@
                                  :handler dictionary-render
                                  :error-handler error-handler})))}]]
    [:div
-    [:textarea {:type "text" :rows "4" :cols "100" :value (:meaning @(rf/subscribe [:dictionary]))}]]
+    [:textarea {:type "text" :rows "4" :cols "100" :value (str "Meaning :" (:meaning @(rf/subscribe [:dictionary])))}]
+    [:textarea {:type "text" :rows "4" :cols "100" :value (str "Usage :" (:usage @(rf/subscribe [:dictionary])))}]]
 
    [:div
-    [:input {:type "button" :value "Go back to Home!" :on-click #(rf/dispatch [:set-active-page :home])}]]])
+    [:input {:type "button" :value "Go back to Home!"
+             :on-click (fn [a]
+                         (rf/dispatch [:set-active-page :home])
+                         (rf/dispatch [:set-dictionary ""]))}]]])
 
 
 
@@ -239,13 +340,13 @@
                                 :keywords? true
                                 :handler print-userdetails
                                 :error-handler error-handler})))}
-    [sa/Input {:type "submit" :value "Get Details!"}]
+    [sa/Input {:type "submit" :value "Get Details!"}] [:br]
     [sa/Input {:type "button" :value "Translate into English"
                :on-click (fn [e]
-                           (rf/dispatch [:set-active-page :translate-page]))}]
+                           (rf/dispatch [:set-active-page :translate-page]))}] [:br]
     [sa/Input {:type "button" :value "Dictionary"
                :on-click (fn [e]
-                           (rf/dispatch [:set-active-page :dictionary-page]))}]
+                           (rf/dispatch [:set-active-page :dictionary-page]))}] [:br]
     [sa/Input {:type "button" :value "Logout!"
              :on-click (fn [e]
                          (rf/dispatch [:set-active-page :login])
@@ -275,10 +376,11 @@
 
 (def pages
   {:home #'home-page
-   :about #'about-page
+   :about #'synonym-game
    :login #'login-page
    :signup #'signup-page
    :thankyou #'thankyou-page
+   :animal #'learn-animals
    :register-fail #'register-fail-page
    :login-fail #'login-fail-page
    :translate-page #'translate-page
@@ -298,6 +400,8 @@
 
 (secretary/defroute "/about" []
   (rf/dispatch [:set-active-page :about]))
+(secretary/defroute "/learn-animal" []
+  (rf/dispatch [:set-active-page :animal]))
 
 (secretary/defroute "/login" []
   (rf/dispatch [:set-active-page :login]))

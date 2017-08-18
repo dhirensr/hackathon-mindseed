@@ -70,3 +70,33 @@
   (flatten (remove nil? (map (fn [a]
                                (if (= mobilenumber (:mobilenumber a))
                                  [a])) (all-users-details)))))
+
+
+
+
+(defn update-words []
+  (mc/update db
+             "word-map"
+             {}
+             {$set {:disabled? false}}
+             {:multi true}))
+
+
+
+(defn enter-word [word synonym]
+  (mc/insert db "word-map"{:word word
+                           :synonym synonym
+                           :clicked? false
+                           :disabled? false}))
+
+(defn display-words []
+  (mc/find-maps db
+                "word-map"))
+
+(defn display-animals []
+  (mc/find-maps db
+                "animals"))
+
+(defn enter-animal [src name]
+  (mc/insert db "animals"{:src src
+                          :name name}))
