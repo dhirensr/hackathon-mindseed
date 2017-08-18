@@ -12,4 +12,6 @@
   (GET "/" []
        (home-page))
   (GET "/words" []
-       (layout/render-json (view/get-words))))
+       (layout/render-json (view/get-words)))
+  (GET "/animals" []
+       (layout/render-json (view/get-animals))))

@@ -20,9 +20,19 @@
    (assoc db :synonyms words)))
 
 (reg-event-db
-  :set-docs
-  (fn [db [_ docs]]
-    (assoc db :docs docs)))
+ :set-docs
+ (fn [db [_ docs]]
+   (assoc db :docs docs)))
+
+(reg-event-db
+ :set-index
+ (fn [db [_ _]]
+   (update-in db [:current-index] inc)))
+
+(reg-event-db
+ :set-animals
+ (fn [db [_ animals]]
+   (assoc db :animals animals)))
 
 (defn disable-word
   [word]

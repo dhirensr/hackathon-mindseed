@@ -16,6 +16,11 @@
 
 (def server "http://localhost:3000/")
 
+
+
+
+#_(def animal-list ["Dog" "Cat" "Horse" "Pig"])
+
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
     [:li.nav-item
@@ -34,7 +39,8 @@
       [:a.navbar-brand {:href "#/"} "hackathon"]
       [:ul.nav.navbar-nav
        [nav-link "#/" "Home" :home collapsed?]
-       [nav-link "#/synonym-game" "synonym" :synonym collapsed?]]]]))
+       [nav-link "#/synonym-game" "synonym" :synonym collapsed?]
+       [nav-link "#/learn-animals" "Learn Animals" :learn-animals collapsed?]]]]))
 
 (defn synonym-handler
   [response]
@@ -42,7 +48,7 @@
 
 (defn error-handler
   [response]
-  (js/alert "Error handler"))
+  (js/alert (str response)))
 
 
 
@@ -79,18 +85,47 @@
                               "SYNONYM"))])
                      @synonyms))])))
 
+(defn animal-handler
+  [response]
+  (rf/dispatch [:set-animals response]))
 
+(defn learn-animals
+  []
+  (let [animal @(rf/subscribe [:get-k :current-index])
+        animal-list @(rf/subscribe [:get-k :animals])
+        animal-answer (nth animal-list animal)]
+
+    [:div.container
+     [sa/Header {:as "h1"}
+      "Learn Animals"]
+     [:div
+     [:button {:on-click (fn [e]
+                            (GET (str server "animals")
+                                 {:format :json
+                                  :response-format :json
+                                  :keywords? true
+                                  :handler animal-handler
+                                  :error-handler error-handler}))}
+       "Click to generate"]]
+     [:div
+      [sa/Image {:src (:src animal-answer)
+                 :size "medium"
+                 :shape "circular"}]
+      [sa/Header {:as "h3"}
+       "Which animal is this?"]
+      [:p (str (:name animal-answer))]]
+     [:div
+      {:class "next"}
+      [sa/Button {:on-click #(rf/dispatch [:set-index])} "Next animal"]]]))
 
 (defn home-page []
   [:div.container
-   (when-let [docs @(rf/subscribe [:docs])]
-     [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
+   ])
 
 (def pages
   {:home #'home-page
-   :synonym #'synonym-game})
+   :synonym #'synonym-game
+   :learn-animals #'learn-animals})
 
 (defn page []
   [:div
@@ -104,8 +139,12 @@
 (secretary/defroute "/" []
   (rf/dispatch [:set-active-page :home]))
 
+(secretary/defroute "/learn-animals" []
+  (rf/dispatch [:set-active-page :learn-animals]))
+
 (secretary/defroute "/synonym-game" []
   (rf/dispatch [:set-active-page :synonym]))
+
 
 ;; -------------------------
 ;; History

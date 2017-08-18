@@ -39,4 +39,12 @@
 
 (defn display-words []
   (mc/find-maps db
-           "word-map"))
+                "word-map"))
+
+(defn display-animals []
+  (mc/find-maps db
+                "animals"))
+
+(defn enter-animal [src name]
+  (mc/insert db "animals"{:src src
+                           :name name}))

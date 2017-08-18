@@ -2,4 +2,5 @@
 
 (defonce default-db
   {:page :home
-   :toggle false})
+   :toggle false
+   :current-index 0})
