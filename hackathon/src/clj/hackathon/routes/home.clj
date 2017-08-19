@@ -26,7 +26,7 @@
 
  #_ (def dictionary-url "http://api.pearson.com/v2/dictionaries/entries?headword=")
 (def url "http://api.pearson.com/v2/dictionaries/wordwise/entries?headword=")
-(client/get (str dictionary-url "hello"))
+#_(client/get (str dictionary-url "hello"))
 
 
 
@@ -38,7 +38,9 @@
 (defn getdetails [mobilenumber]
   (layout/render-json
    (views/get-userdetails mobilenumber)))
-
+(defn pull-values [m val-map]
+  (into {} (for [[k v] val-map]
+             [k (get-in m (if (sequential? v) v [v]))])))
 (defn dictionary
   [p]
   (layout/render-json (-> (str url p)
@@ -74,7 +76,7 @@
        (layout/render-json (views/get-animals))))
 
 
-(client/get "http://urban-word-of-the-day.herokuapp.com/")
+#_(client/get "http://urban-word-of-the-day.herokuapp.com/")
 
 
 (defn news []
@@ -83,7 +85,3 @@
                     :body
                     json/read-str)]
     content))
-
-(defn pull-values [m val-map]
-  (into {} (for [[k v] val-map]
-             [k (get-in m (if (sequential? v) v [v]))])))
